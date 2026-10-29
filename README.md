@@ -1,6 +1,6 @@
 # Job Matthew Bernardo — Cinematic Portfolio
 
-Next.js App Router, React, TypeScript, Tailwind CSS v4, GSAP ScrollTrigger, and Lenis. Self-hosted Space Grotesk; no external media or API keys required.
+Next.js App Router, React, TypeScript, Tailwind CSS v4, GSAP ScrollTrigger, Lenis, and OGL-backed React Bits studies. Self-hosted Space Grotesk; no external media or API keys required.
 
 ## Run
 
@@ -28,3 +28,11 @@ Desktop pinning is enabled at 900px wide and 700px tall or above. Smaller screen
 ## Validation
 
 Production compilation and TypeScript checks are required. Browser validation should cover desktop, mobile, reduced motion, keyboard focus, menu navigation, project disclosure, forward/backward scrolling, resizing, and back-to-top. Run accessibility scanning on all modes. No deployment or remote push is part of setup.
+
+## React Bits integration
+
+The about scene includes a pointer-revealed DitherVeil study. The work stage has a **Browse projects** dialog using FlexCarousel, alongside native project links. Artwork is local SVG illustration, explicitly labeled conceptual covers; it is not a project screenshot. Project preview paths and descriptions live in `src/data/portfolio.ts`.
+
+The JS/CSS sources are preserved under `src/components/react-bits`, with typed application adapters under `src/components/graphics`. Both effects share the single `ogl` dependency. Imports are dynamic and GPU rendering is gated on visibility, desktop dimensions, pointer capability, motion preference, and WebGL2 availability. Reduced motion, touch devices, short windows, and unavailable WebGL retain static artwork and normal links. Carousel autoplay and vertical wheel capture are disabled.
+
+The registry CLI was blocked by this environment; the component files were copied from the official repository at `e12c22192ac7b4b452c5e2feb9b586d74765d696` after source inspection. See `src/components/react-bits/LICENSE.md` for the upstream MIT + Commons Clause terms. `components.json` registers the React Bits namespace for environments that can access `reactbits.dev` and `ui.shadcn.com`; runtime use requires neither domain.

@@ -1,10 +1,12 @@
 import { Arrow } from './ui/Arrow';
+import { ProjectBrowser } from './graphics/ProjectBrowser';
 import { portfolio } from '../data/portfolio';
 import { ProjectShowcase } from './ProjectShowcase';
 
 export function WorkSequence() {
   return <div className="work-sequence">
     <div className="work-stage">
+      <ProjectBrowser/>
       <div className="work-aperture" aria-hidden="true"><span/><span/><span/><span/></div>
       <section id="work" className="work-intro section-pad" data-scene="05">
         <div className="section-label">04 / IDEAS INTO FORM</div>

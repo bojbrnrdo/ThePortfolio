@@ -40,3 +40,13 @@ The production build and TypeScript checks pass with the new shared work stage. 
 Light-background hover colors were corrected for contrast. SVG direction icons replace font-dependent arrows in the new controls. Placeholder project information is unchanged; there are no new application dependencies. Browser and physical-device limitations from the previous validation still apply.
 
 Final checks also pass at 1280×600: directed pinning is disabled, ordinary section/project links reach the correct document positions, and menu/keyboard/accessibility checks pass. A fresh visit to `#project-2` correctly presents ChatP2P; previous-project navigation returns to LifeGen. Initial fragment handling waits for load/font layout, and Lenis dimensions are synchronized after ScrollTrigger refreshes. Ordinary anchors use actual document coordinates so browser or keyboard scrolling does not introduce stale offsets.
+
+## React Bits studies
+
+Production build and TypeScript pass after adding the official FlexCarousel and DitherVeil JS/CSS sources. `npm audit --omit=dev` reports zero known vulnerabilities for the production dependency set, including OGL.
+
+Chromium WebGL2 checks used SwiftShader software rendering: the DitherVeil image changes under pointer input, FlexCarousel advances through both its controls and arrow keys, and native project selection closes its dialog and removes its canvas. Browser dialogs, project links, Escape, scroll unlocking, no horizontal overflow, and automated WCAG A/AA checks pass in WebGL-enabled desktop, mobile 390×844, reduced-motion desktop, and a context where WebGL is deliberately unavailable. No JavaScript page errors, console errors, or external media requests occurred in those runs.
+
+Both effects have server-rendered local image/link fallbacks. GPU wrappers mount only when the element is near the viewport and unmount when hidden, offscreen, or outside the supported media query. Source revision and upstream licensing are recorded alongside the vendored files. Physical GPU performance, Safari/Firefox, and assistive-technology review remain untested.
+
+Opening/identity choreography, section navigation, responsive stage cleanup, contact accessibility scans, and JavaScript-disabled content regression checks pass on desktop, mobile, and reduced motion after this integration. All four vendored JS/CSS files were verified byte-for-byte against the recorded upstream revision.
