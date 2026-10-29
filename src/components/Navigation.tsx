@@ -32,7 +32,7 @@ export function Navigation() {
     <header className="nav">
       <a href="#beginning" className="monogram" aria-label="Job Matthew Bernardo, beginning">JMB<span>®</span></a>
       <a className="nav-caption" href="#about">Independent mind.<br/>Multiple perspectives.</a>
-      <nav className="desktop-nav" aria-label="Main navigation"><a href="#work">Selected work <span>{String(portfolio.projects.length).padStart(2, '0')}</span></a><a href="#contact">Let’s talk <Arrow/></a></nav>
+      <nav className="desktop-nav" aria-label="Main navigation"><a href="#work">Selected work <span>{String(portfolio.projects.length).padStart(2, '0')}</span></a><a href="#certificates">Certificates</a><a href="#contact">Let’s talk <Arrow/></a></nav>
     </header>
     <button ref={trigger} className="menu-button" onClick={() => setOpen(true)} aria-haspopup="dialog" aria-expanded={open} aria-controls="menu">Menu +</button>
     <dialog ref={dialog} id="menu" className="menu menu-dialog" aria-label="Explore the portfolio" data-lenis-prevent onClose={() => { setOpen(false); trigger.current?.focus({ preventScroll: true }); }} onClick={event => { if (event.target === event.currentTarget) close(); }}>
