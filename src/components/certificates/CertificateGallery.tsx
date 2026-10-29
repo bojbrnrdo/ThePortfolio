@@ -54,15 +54,7 @@ export function CertificateGallery({ certificates }: Props) {
   }
   function openOriginal(index: number) {
     const certificate = filtered[index];
-    if (certificate) root.current?.querySelector<HTMLAnchorElement>(`[data-certificate-id="${certificate.id}"]`)?.click();
-  }
-  function documentList(documents: Certificate[], start: number) {
-    return <ul className="certificate-list">{documents.map((certificate, index) => <li key={certificate.id}>
-      <a data-certificate-id={certificate.id} href={certificate.original} target="_blank" rel="noopener noreferrer" aria-label={`Open original document: ${certificate.title} (new tab)`}>
-        <img src={certificate.preview} alt={certificate.previewAlt} width={certificate.previewWidth} height={certificate.previewHeight} loading="lazy" decoding="async"/>
-        <div><span className="certificate-number">{String(start+index+1).padStart(2,'0')}</span><div><h3>{certificate.title}</h3><DocumentDetails certificate={certificate}/></div><Arrow/></div>
-      </a>
-    </li>)}</ul>;
+    if (certificate) window.open(certificate.original, '_blank', 'noopener,noreferrer');
   }
 
   return <div ref={root} className={`certificate-gallery${enhanced ? ' is-enhanced' : ''}`}>
@@ -83,12 +75,9 @@ export function CertificateGallery({ certificates }: Props) {
         <div><span>{String(active+1).padStart(2,'0')} / {String(filtered.length).padStart(2,'0')}</span><h3>{selected.title}</h3><DocumentDetails certificate={selected}/><a className="certificate-original" href={selected.original} target="_blank" rel="noopener noreferrer">View original document <Arrow/></a></div>
         {filtered.length > 1 && <div className="certificate-controls"><button onClick={() => move('ArrowLeft')} aria-label="Previous certificate"><Arrow direction="left"/></button><button onClick={() => move('ArrowRight')} aria-label="Next certificate"><Arrow direction="left"/></button></div>}
       </div>
-      <p className="certificate-gesture">{enhanced ? 'DRAG OR USE ARROW KEYS / SELECT A DOCUMENT TO OPEN THE ORIGINAL' : 'USE THE PREVIEW CONTROLS OR CHOOSE A DOCUMENT BELOW'}</p>
+      <p className="certificate-gesture">{enhanced ? 'DRAG OR USE ARROW KEYS / SELECT A DOCUMENT TO OPEN THE ORIGINAL' : 'USE THE PREVIEW CONTROLS TO EXPLORE DOCUMENTS'}</p>
     </>}
-    {filtered.length ? <>
-      {documentList(filtered.slice(0,6),0)}
-      {filtered.length > 6 && <details className="certificate-archive" key={filter}><summary>View remaining {filtered.length-6} documents <span>+</span></summary>{documentList(filtered.slice(6),6)}</details>}
-    </> : <p>No documents in this category.</p>}
+    <noscript><ul>{filtered.map(certificate => <li key={certificate.id}><a href={certificate.original} target="_blank" rel="noopener noreferrer">{certificate.title}</a></li>)}</ul></noscript>
     <p className="certificate-dates-note">Dates and validity are as printed on each document. Course completions and memberships are listed separately from professional certifications.</p>
   </div>;
 }
