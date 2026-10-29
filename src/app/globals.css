@@ -103,3 +103,10 @@ html{scrollbar-gutter:stable}
 @media(prefers-reduced-motion:reduce){.studio-sculpture{perspective:none}.studio-object{transform:none}.studio-fin{box-shadow:none}.intro-skip{display:none!important}}
 .film-stage{overflow:clip}.project-art{color:#171719}.about-copy>.placeholder,.timeline .placeholder{color:#b8bdc5;opacity:1}
 @media(max-width:899px){.studio-light{inset:0}}
+/* Sustained studio motion continues after the optional first-visit reveal. */
+.studio-idle{position:absolute;inset:0;transform-style:preserve-3d}.intro-replay{position:absolute;right:4%;top:112px;z-index:8;background:transparent;border:0;border-bottom:1px solid #747780;padding:8px 0;color:#c4c7ce;font:10px monospace;cursor:pointer}.intro-playing .intro-replay{visibility:hidden}.closing-mark{transform-origin:right center}
+@media(prefers-reduced-motion:no-preference){.motion-ready .studio-idle{animation:studio-breathe 12s ease-in-out infinite}.intro-playing .studio-idle{animation-play-state:paused}.motion-ready .studio-fin span{animation:studio-seam 5s ease-in-out infinite;animation-delay:calc(var(--fin)*.25s)}}
+@keyframes studio-breathe{0%,100%{transform:rotateY(-9deg) rotateX(2deg) translateY(0)}50%{transform:rotateY(13deg) rotateX(-4deg) translateY(-12px)}}
+@keyframes studio-seam{0%,100%{opacity:.35}50%{opacity:1}}
+@media(max-width:899px),(max-height:699px){.intro-replay{display:none}}
+@media(prefers-reduced-motion:reduce){.intro-replay{display:none}.studio-idle,.studio-fin span{animation:none!important}}

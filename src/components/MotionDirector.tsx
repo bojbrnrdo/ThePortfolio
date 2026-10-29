@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { directSceneAtmosphere, directCompactScenes } from './motion/sceneAtmosphere';
 import { directWork } from './motion/workChoreography';
 import { directOpening, directDisciplines, directProcess } from './motion/choreography';
 export function MotionDirector(){
@@ -31,6 +32,7 @@ export function MotionDirector(){
    };
    document.addEventListener('click', onAnchor);
    const ctx=gsap.context(()=>{
+    directSceneAtmosphere();
     gsap.to('.scroll-progress',{scaleX:1,ease:'none',scrollTrigger:{trigger:'main',start:'top top',end:'bottom bottom',scrub:true}});
     gsap.utils.toArray<HTMLElement>('[data-scene]').forEach((scene)=>{
      ScrollTrigger.create({trigger:scene,start:'top center',end:'bottom center',onEnter:()=>setChapter(scene),onEnterBack:()=>setChapter(scene)});
@@ -40,6 +42,7 @@ export function MotionDirector(){
    });
    return ()=>{ctx.revert();document.removeEventListener('click', onAnchor);gsap.ticker.remove(tick);lenis?.destroy();lenis=undefined;};
   });
+  mm.add('(max-width: 899px) and (prefers-reduced-motion: no-preference), (max-height: 699px) and (prefers-reduced-motion: no-preference)', () => { const ctx = gsap.context(directCompactScenes); return () => ctx.revert(); });
   mm.add('(min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)',()=>{
    const cleanups: (() => void)[] = [];
    const ctx=gsap.context(()=>{
@@ -47,7 +50,7 @@ export function MotionDirector(){
     const resetDisciplines = directDisciplines(document.querySelector<HTMLElement>('.disciplines')!);
     const resetProcess = directProcess(document.querySelector<HTMLElement>('.process')!);
     const work = directWork(document.querySelector<HTMLElement>('.work-stage')!);
-    gsap.fromTo('.closing-mark', { rotation: -90, scale: .45 }, { rotation: 0, scale: 1, scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'center center', scrub: .7 } });
+
     const seek = (hash: string, immediate = false) => {
       const timeline = hash === '#identity' || hash === '#beginning' ? opening.timeline : hash === '#work' || /^#project-\d+$/.test(hash) ? work.timeline : null;
       if (!timeline) return false;

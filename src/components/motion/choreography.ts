@@ -13,24 +13,25 @@ export function directOpening(stage: HTMLElement) {
     onUpdate: self => { const chapter = document.querySelector('.chapter-current'); if (chapter && self.isActive) chapter.textContent = self.progress < .27 ? '01' : '02'; },
   }});
   tl.addLabel('opening', 0)
-    .to(q('.studio-sculpture'), { rotationY: 15, scale: 1.08, duration: 1.2 }, 0)
+    .to(q('.intro-replay'), { autoAlpha: 0, duration: .25 }, .1)
+    .to(q('.studio-sculpture'), { rotationY: 42, rotationX: -12, scale: 1.2, duration: 1.2 }, 0)
     .to(q('.hero-title .mask:first-child'), { yPercent: -110, duration: .9 }, 1)
     .to(q('.hero-title .second-line'), { yPercent: 110, duration: .9 }, 1)
     .to(q('.hero-tagline, .figure-caption, .hero-bottom, .hero-eyebrow'), { autoAlpha: 0, y: -15, duration: .5 }, 1)
     .to(q('.studio-sculpture'), { xPercent: -28, scale: 1.5, rotationZ: -15, duration: 1.2 }, 1)
-    .to(fins, { x: (i: number) => (i - 2.5) * 48, rotationZ: (i: number) => (i - 2.5) * 6, duration: 1.2 }, 1)
+    .to(fins, { x: (i: number) => (i - 2.5) * 72, rotationZ: (i: number) => (i - 2.5) * 6, duration: 1.2 }, 1)
     .set(q('.hero'), { autoAlpha: 0 }, 2.1)
     .set(q('.identity'), { autoAlpha: 1 }, 2.1)
     .addLabel('identity', 2.1)
     .set(words[0], { autoAlpha: 1 }, 2.1)
     .from(q('.identity .section-label, .identity-caption'), { y: 25, opacity: 0, duration: .5 }, 2.1)
     .fromTo(words[0], { yPercent: 110 }, { yPercent: 0, duration: .7 }, 2.1)
-    .to(q('.studio-sculpture'), { opacity: .28, duration: .8 }, 2.1);
+    .to(q('.studio-sculpture'), { opacity: .5, duration: .8 }, 2.1);
   words.slice(1).forEach((word, index) => {
     const at = 3.3 + index * 1.2;
     tl.to(words[index], { yPercent: -110, autoAlpha: 0, duration: .55 }, at)
       .fromTo(word, { yPercent: 110, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: .65 }, at)
-      .to(fins, { x: (i: number) => (i - 2.5) * (index ? 100 : 65), rotationZ: index ? 90 : 0, duration: .9 }, at)
+      .to(fins, { x: (i: number) => (i - 2.5) * (index ? 135 : 95), rotationZ: index ? 90 : 0, duration: .9 }, at)
       .to(q('.studio-sculpture'), { rotationZ: index ? 0 : 15, duration: .9 }, at);
   });
   tl.to(q('.identity'), { autoAlpha: 0, y: -35, duration: .65 }, 5.8)

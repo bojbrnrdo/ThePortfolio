@@ -9,10 +9,10 @@ Six folded, metallic planes replace the orange orbital hero. CSS perspective, gr
 ## Motion
 
 - First eligible desktop visit: eight-second light sweep, viewpoint rotation, unfolding planes and name reveal. The navigation is always available. Skip introduction, a navigation click, scrolling or scroll keys settle the intro immediately.
-- `sessionStorage` prevents replay within the same tab session. Direct section links skip it. Storage unavailable means the settled version is shown.
+- A desktop replay button makes the introduction available on demand. Gentle ongoing sculpture motion remains after it finishes. `sessionStorage` prevents automatic replay within the same tab session. Direct section links skip it. Storage unavailable means the settled version is shown.
 - ScrollTrigger controls the outer sculpture independently of the intro's inner object, so scrolling can take over without competing transforms. The shared opening/identity timeline reverses as one composition.
 - Projects use restrained perspective, image-frame settling and overlapping replacements. Existing project names, descriptions, artwork and links remain.
-- Mobile, short viewports, reduced motion and JavaScript-free visits retain readable native content. There is no loading gate, hidden required content or scroll lock.
+- Mobile and short viewports use unpinned character, perspective, mask and row animations. Reduced-motion and JavaScript-free visits retain readable native content. There is no loading gate, hidden required content or scroll lock.
 
 ## Editing and running
 

@@ -1,14 +1,15 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 /** A small, programmatic studio sculpture: six folded metal planes, no model download. */
 export function RevealSculpture() {
+  const [replay, setReplay] = useState(0);
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const element = root.current;
-    if (!element || !window.matchMedia('(min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)').matches || location.hash || window.scrollY > 30) return;
-    try { if (sessionStorage.getItem('jmb-studio-intro')) return; sessionStorage.setItem('jmb-studio-intro', '1'); } catch { return; }
+    if (!element || !window.matchMedia('(min-width: 900px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)').matches || (location.hash && location.hash !== '#beginning') || window.scrollY > 30) return;
+    try { if (!replay && sessionStorage.getItem('jmb-studio-intro')) return; sessionStorage.setItem('jmb-studio-intro', '1'); } catch { return; }
     const stage = element.closest('.film-stage')!;
     let timeline: gsap.core.Timeline;
     const ctx = gsap.context(() => {
@@ -31,6 +32,6 @@ export function RevealSculpture() {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
     media.addEventListener('change', finish);
     return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('keydown', onKey); document.removeEventListener('click', finish); stage.querySelector('.intro-skip')?.removeEventListener('click', finish); media.removeEventListener('change', finish); ctx.revert(); stage.classList.remove('intro-playing'); };
-  }, []);
-  return <div className="studio-sculpture" ref={root} aria-hidden="true"><div className="studio-light"/><div className="studio-beam"/><div className="studio-object">{Array.from({ length: 6 }, (_, i) => <div className="studio-fin" key={i} style={{ '--fin': i } as React.CSSProperties}><span/></div>)}</div><div className="studio-red-line"/><div className="studio-floor"/></div>;
+  }, [replay]);
+  return <><button className="intro-replay" onClick={() => setReplay(value => value + 1)}>Replay introduction ↗</button><div className="studio-sculpture" ref={root} aria-hidden="true"><div className="studio-light"/><div className="studio-beam"/><div className="studio-idle"><div className="studio-object">{Array.from({ length: 6 }, (_, i) => <div className="studio-fin" key={i} style={{ '--fin': i } as React.CSSProperties}><span/></div>)}</div></div><div className="studio-red-line"/><div className="studio-floor"/></div></>;
 }
