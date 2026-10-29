@@ -50,3 +50,9 @@ Chromium WebGL2 checks used SwiftShader software rendering: the DitherVeil image
 Both effects have server-rendered local image/link fallbacks. GPU wrappers mount only when the element is near the viewport and unmount when hidden, offscreen, or outside the supported media query. Source revision and upstream licensing are recorded alongside the vendored files. Physical GPU performance, Safari/Firefox, and assistive-technology review remain untested.
 
 Opening/identity choreography, section navigation, responsive stage cleanup, contact accessibility scans, and JavaScript-disabled content regression checks pass on desktop, mobile, and reduced motion after this integration. All four vendored JS/CSS files were verified byte-for-byte against the recorded upstream revision.
+
+## Certificate collection preparation
+
+The supplied Google Drive folder request failed at the environment proxy with `403 Forbidden`, before folder contents could be read. No certificate titles, issuers, dates, or images were inferred or fabricated. Certificate import and checks against real certificate documents remain blocked on obtaining the source files.
+
+Production build and TypeScript pass. Chromium checks pass on desktop 1440×1000, mobile 390×844, reduced motion, and without JavaScript: certificate navigation reaches the section, the source-folder link matches the supplied URL, an empty collection renders no certificate records or stock-image carousel, and automated WCAG A/AA scans report no violations. No horizontal overflow or JavaScript page errors occurred. The existing project browser still renders WebGL and advances using the newly shared typed FlexCarousel adapter.

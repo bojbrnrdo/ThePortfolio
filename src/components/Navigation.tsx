@@ -5,7 +5,7 @@ import { portfolio } from '../data/portfolio';
 
 const sections = [
   ['About', '#about'], ['Disciplines', '#disciplines'], ['Selected work', '#work'],
-  ['Experience', '#experience'], ['Process', '#process'], ['Contact', '#contact'],
+  ['Experience', '#experience'], ['Certificates', '#certificates'], ['Process', '#process'], ['Contact', '#contact'],
 ];
 
 export function Navigation() {

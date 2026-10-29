@@ -1,19 +1,13 @@
 'use client';
-import dynamic from 'next/dynamic';
-import { useEffect, useRef, useState, type ComponentType } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { portfolio } from '../../data/portfolio';
 import { Arrow } from '../ui/Arrow';
 import { GraphicsBoundary } from './GraphicsBoundary';
 import { useInteractiveGraphics } from '../../hooks/useInteractiveGraphics';
 
-type Item = { src: string; title: string; alt: string; subtitle?: string };
-type CarouselProps = {
-  items: Item[]; captureWheel: boolean; autoplay: boolean; focusOnClick: boolean;
-  captions: boolean; cardHeight: number; gap: number; fit: string; intro: string;
-  bend: number; dispersion: number; onSelect: (index: number) => void;
-};
-const FlexCarousel = dynamic<CarouselProps>(() => import('../react-bits/FlexCarousel').then(module => module.default as unknown as ComponentType<CarouselProps>), { ssr: false });
-const items: Item[] = portfolio.projects.map(project => ({ src: project.preview, title: project.title, alt: project.previewAlt, subtitle: 'Conceptual cover / details pending' }));
+import { FlexCarousel, type CarouselItem } from './FlexCarousel';
+
+const items: CarouselItem[] = portfolio.projects.map(project => ({ src: project.preview, title: project.title, alt: project.previewAlt, subtitle: 'Conceptual cover / details pending' }));
 
 function BrowserContents({ close }: { close: () => void }) {
   const root = useRef<HTMLDivElement>(null);
