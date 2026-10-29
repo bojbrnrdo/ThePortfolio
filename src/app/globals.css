@@ -64,3 +64,13 @@ html{scrollbar-gutter:stable}
 .technology-play-icon{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 .technology-footer{min-height:80px}
+
+/* Open composition: unboxed marks and soft fades into the page. */
+.technology-viewport{background:transparent;border:0;height:700px;mask-image:linear-gradient(to bottom,transparent 0%,#000 15%,#000 85%,transparent 100%)}.technology-spiral .infinite-spiral__item{border:0!important;border-radius:0!important;background:none!important;box-shadow:none;overflow:visible}.technology-filters{gap:12px 28px}.technology-filters button{border:0;border-radius:0;background:transparent;padding:12px 0;color:#b9b9bc;position:relative;transition:color .25s ease}.technology-filters button[aria-pressed=true]{background:transparent;color:var(--paper);border:0}.technology-filters button:after{content:'';position:absolute;left:0;bottom:3px;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}.technology-filters button[aria-pressed=true]:after{transform:scaleX(1)}.technology-filters button:hover{color:var(--paper)}.technology-footer button{border:0;border-radius:0;background:transparent;padding:10px 0;transition:color .25s ease}.technology-footer button:hover{background:transparent;color:var(--accent)}.technology-index{border:0}.technology-index summary{padding:18px 0}.technology-static{padding:50px 5%}.technology-static li{background:transparent;border:0;box-shadow:none}
+@media(max-width:899px){.technology-viewport{height:800px}.technology-filters{gap:8px 22px}}
+@media(max-width:600px){.technology-viewport{height:auto;mask-image:none}.technology-static{padding:20px 0;gap:20px 9px}.technology-filters button{padding:10px 0}.technology-filters{gap:8px 20px}}
+@media(prefers-reduced-motion:reduce){.technology-filters button,.technology-filters button:after,.technology-footer button{transition:none}}
+.technology-panel:not(.is-enhanced) .technology-viewport{mask-image:none}.technology-spiral .infinite-spiral{animation:technology-arrive .6s ease-out both}@keyframes technology-arrive{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.technology-spiral .infinite-spiral{animation:none}}
+@media(max-width:899px){.technology-index ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.technology-index ul{grid-template-columns:repeat(2,minmax(0,1fr))}.technology-index li{min-width:0;overflow-wrap:anywhere}}
