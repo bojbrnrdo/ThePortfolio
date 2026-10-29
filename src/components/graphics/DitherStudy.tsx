@@ -18,8 +18,8 @@ export function DitherStudy() {
     <div className="dither-study-image">
       {/* This is an abstract illustration, never a portrait or project screenshot. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/art/perspective.svg" alt="An abstract orbital composition in vermilion and charcoal." width={1000} height={760} loading="lazy" decoding="async"/>
-      {enabled && <div className="dither-study-effect" aria-hidden="true"><GraphicsBoundary><DitherVeil src="/art/perspective.svg" pattern="bayer" fit="contain" pixelSize={3} levels={2} inkColor="#0b0b0d" paperColor="#f4f2ed" revealRadius={140} linger={.5} wander={false} clickBurst={false}/></GraphicsBoundary></div>}
+      <img src="/art/perspective.svg" alt="A study of folded metallic planes under silver light with a fine red horizon." width={1000} height={760} loading="lazy" decoding="async"/>
+      {enabled && <div className="dither-study-effect" aria-hidden="true"><GraphicsBoundary><DitherVeil src="/art/perspective.svg" pattern="bayer" fit="contain" pixelSize={3} levels={2} inkColor="#0b0b0d" paperColor="#c5cad3" revealRadius={140} linger={.5} wander={false} clickBurst={false}/></GraphicsBoundary></div>}
     </div>
     <figcaption><span>FIG. 02 / A CHANGE IN PERSPECTIVE</span><span>{enabled ? 'MOVE TO REVEAL ↗' : 'ABSTRACT VISUAL STUDY'}</span></figcaption>
   </figure>;

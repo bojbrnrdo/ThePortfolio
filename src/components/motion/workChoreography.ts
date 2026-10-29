@@ -32,13 +32,14 @@ export function directWork(stage: HTMLElement) {
     const within = gsap.utils.selector(panel);
     tl.addLabel(`project-${index+1}`, at + .85);
     if (index) {
-      tl.to(panels[index-1], { xPercent: -12, scale: .92, autoAlpha: 0, duration: .75 }, at)
-        .fromTo(panel, { xPercent: 105, autoAlpha: 0 }, { xPercent: 0, autoAlpha: 1, duration: .95 }, at)
+      tl.to(panels[index-1], { xPercent: -8, scale: .88, rotationY: -8, autoAlpha: 0, duration: .85 }, at)
+        .fromTo(panel, { xPercent: 25, rotationY: 10, scale: 1.12, autoAlpha: 0 }, { xPercent: 0, rotationY: 0, scale: 1, autoAlpha: 1, duration: 1.1 }, at)
         .from(within('.art-object'), { rotation: -75, scale: .75, duration: 1.1 }, at);
     } else {
       tl.fromTo(panel, { autoAlpha: 0, clipPath: 'inset(45% 45% 45% 45%)' }, { autoAlpha: 1, clipPath: 'inset(0% 0% 0% 0%)', duration: 1 }, at);
     }
-    tl.from(within('.art-title'), { yPercent: 65, opacity: 0, duration: .65 }, at + .3)
+    tl.fromTo(within('.project-art'), { rotationX: 6, scale: 1.06 }, { rotationX: 0, scale: 1, duration: 1.4 }, at)
+      .from(within('.art-title'), { yPercent: 65, opacity: 0, duration: .65 }, at + .3)
       .from(within('.project-meta, .project-pagination'), { y: 22, opacity: 0, stagger: .08, duration: .45 }, at + .6)
       .to({}, { duration: .9 });
   });
