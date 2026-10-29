@@ -4,7 +4,7 @@ import { Arrow } from './ui/Arrow';
 import { portfolio } from '../data/portfolio';
 
 const sections = [
-  ['About', '#about'], ['Disciplines', '#disciplines'], ['Selected work', '#work'],
+  ['About', '#about'], ['Disciplines', '#disciplines'], ['Selected work', '#work'], ['Tools', '#skills'],
   ['Experience', '#experience'], ['Certificates', '#certificates'], ['Process', '#process'], ['Contact', '#contact'],
 ];
 

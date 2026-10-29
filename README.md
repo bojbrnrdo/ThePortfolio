@@ -46,3 +46,11 @@ All 36 supplied documents are imported: 26 PDFs and 10 images, presented as 2 pr
 The gallery reuses FlexCarousel with autoplay and vertical wheel capture disabled. Document-type filters, previous/next controls, original-document links, and a collapsible full index keep all documents accessible. Mobile, reduced-motion, and unavailable-WebGL modes use a static image preview with native controls and links. Without JavaScript, the full document index remains accessible through native disclosure elements. Dates are displayed as printed on the documents; inclusion is not independent issuer verification or a claim of current certification validity.
 
 Gallery size changes notify `MotionDirector` to refresh downstream ScrollTrigger positions, including when the archive expands or filters change. Preview space is reserved before GPU enhancement to avoid shifting the composition.
+
+## Technology icon spiral
+
+The skills chapter now includes InfiniteSpiral with 36 local technology marks: 12 web-development references, 12 game-development references, and 12 cybersecurity/tooling references. This is an illustrative ecosystem, not a proficiency or certification claim. Names, discipline grouping, and asset paths are editable in `src/data/technologies.ts`.
+
+The upstream JS/CSS source is from the same recorded React Bits revision. The registry request failed in this environment, so the official cloned source was used with its license retained. InfiniteSpiral uses CSS transforms and adds no runtime package dependency. It responds to scroll/drag, pauses on hover, provides a persistent pause/resume control, and unmounts outside the supported visible desktop state. Mobile, short windows, reduced motion, and JavaScript-disabled pages show a readable icon grid. Its labels are also available through a native disclosure. The disclosure and footer keep their layout space when the animation unmounts, so downstream section links do not shift.
+
+Static SVG icons come from Simple Icons 16.36.0 and Devicon 2.18.0, with source attribution and licenses under `public/technology-icons`. They are rendered in monochrome to preserve the portfolio palette. No icon CDN is required.

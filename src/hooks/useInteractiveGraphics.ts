@@ -14,14 +14,14 @@ function supportsWebGL() {
 }
 
 /** Heavy previews mount only while visible on a capable, motion-enabled desktop. */
-export function useInteractiveGraphics(ref: RefObject<HTMLElement | null>) {
+export function useInteractiveGraphics(ref: RefObject<HTMLElement | null>, requireWebGL = true) {
   const [enabled, setEnabled] = useState(false);
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
     const media = matchMedia('(min-width: 900px) and (min-height: 700px) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
     let visible = false;
-    const update = () => setEnabled(visible && media.matches && !document.hidden && supportsWebGL());
+    const update = () => setEnabled(visible && media.matches && !document.hidden && (!requireWebGL || supportsWebGL()));
     const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); }, { rootMargin: '100px' });
     observer.observe(element);
     media.addEventListener('change', update);
@@ -31,6 +31,6 @@ export function useInteractiveGraphics(ref: RefObject<HTMLElement | null>) {
       media.removeEventListener('change', update);
       document.removeEventListener('visibilitychange', update);
     };
-  }, [ref]);
+  }, [ref, requireWebGL]);
   return enabled;
 }

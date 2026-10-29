@@ -70,3 +70,11 @@ Production build and TypeScript pass. Chromium checks pass for actual WebGL2 ren
 Reproduced a startup bug in the previously supplied `#certificates` URL: desktop pin initialization left the visitor near the opening instead of restoring the ordinary section anchor. Initial fragment restoration and browser-history handling now cover ordinary sections as well as timeline labels, after load, font layout, and pin spacing settle. Certificate navigation is also exposed in the header, and the section heading explicitly says “Certificates”.
 
 Production build and TypeScript pass. Chromium checks pass on desktop, mobile, short desktop windows, and reduced motion for initial certificate URLs, reload, browser Back, all 36 document records, loaded preview images, automated WCAG A/AA scans, no horizontal overflow, and no JavaScript page errors. Header certificate navigation and the existing direct project URL were separately checked. This does not inspect or update a downloaded copy on the user's Mac.
+
+## InfiniteSpiral technology landscape
+
+Integrated the official InfiniteSpiral JS/CSS source from the recorded React Bits revision after the named registry request failed. The source files match that revision byte-for-byte. Added 36 local technology marks, evenly divided across web development, game development, and cybersecurity/tooling; source attribution and CC0/MIT license texts are included. The landscape is illustrative and does not assert proficiency.
+
+Production build and TypeScript pass. Chromium checks pass for desktop, mobile, reduced motion, and unavailable WebGL: all 36 assets load, each discipline filter contains 12 entries, animation advances, pause/resume works, native names remain available, and automated WCAG A/AA scans report no violations. No horizontal overflow, failed resource requests, or JavaScript page errors occurred. All 36 names are present without JavaScript. The component requires CSS transforms rather than WebGL and introduces no runtime package dependency.
+
+Separate checks confirm desktop/mobile certificate direct links still present all 36 documents and loaded previews, and navigation remains aligned after expanding the technology index. The index/footer retain their layout space when animation unmounts offscreen. Physical-device performance and Safari/Firefox remain untested.
