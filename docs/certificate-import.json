@@ -1,0 +1,222 @@
+{
+  "archive": "Portfolio-20261029T160003Z-1-001.zip",
+  "count": 36,
+  "files": [
+    {
+      "sourceFile": "CertificateOfCompletion_AI in Connected Products AIOT.pdf",
+      "id": "ai-in-connected-products-aiot",
+      "original": "/certificates/originals/ai-in-connected-products-aiot.pdf",
+      "sha256": "2e5c9303ed583e6fa0151c8f86aa2cb31254dabee61f1a334b7b986f422a557a"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_AI in Risk Management and Fraud Detection.pdf",
+      "id": "ai-in-risk-management-and-fraud-detection",
+      "original": "/certificates/originals/ai-in-risk-management-and-fraud-detection.pdf",
+      "sha256": "de7d729ff681e24f55a2a765ef5a18fbd685b353b60bc7a1256be32f510395d2"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Agentforce Unlocked Learning the Salesforce AI Service Platform.pdf",
+      "id": "agentforce-unlocked-learning-the-salesforce-ai-service-platform",
+      "original": "/certificates/originals/agentforce-unlocked-learning-the-salesforce-ai-service-platform.pdf",
+      "sha256": "80ec7f1b851a1f71b16d3538589681787ec8c522d3f65e930f723f1e92cf5984"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Azure Storage Essential Training 2021.pdf",
+      "id": "azure-storage-essential-training-2021",
+      "original": "/certificates/originals/azure-storage-essential-training-2021.pdf",
+      "sha256": "0541555ec258a51b7296a8dffc2f361f54dc930edbebf3bae97eac6ed730929d"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Cloud Storage Concepts Services Cost Control and Security.pdf",
+      "id": "cloud-storage-concepts-services-cost-control-and-security",
+      "original": "/certificates/originals/cloud-storage-concepts-services-cost-control-and-security.pdf",
+      "sha256": "1aa2f4d778d69aae23ad3446138cee67b40034936966870da4e84c09d7f1ea69"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Developing Emotional Intelligence to Further Diversity Equity and Inclusion.pdf",
+      "id": "developing-emotional-intelligence-to-further-diversity-equity-and-inclusion",
+      "original": "/certificates/originals/developing-emotional-intelligence-to-further-diversity-equity-and-inclusion.pdf",
+      "sha256": "749078cc5a3975b759f262a101d5038baf3d5565c3590aee03aeb9c61a9d679c"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Diversity Inclusion and Belonging.pdf",
+      "id": "diversity-inclusion-and-belonging",
+      "original": "/certificates/originals/diversity-inclusion-and-belonging.pdf",
+      "sha256": "fb61099054ef6544be494c7a720cc3f3214cf6f074301e0ed7215a29a69eed22"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Excel Tips and Tricks 2018.pdf",
+      "id": "excel-tips-and-tricks-2018",
+      "original": "/certificates/originals/excel-tips-and-tricks-2018.pdf",
+      "sha256": "cc3d6e2a3cd0470c8f6583b07332ed1e36ab4cd1a62d18014b1e77f8cb1a7d04"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Getting Started with Professional Scrum.pdf",
+      "id": "getting-started-with-professional-scrum",
+      "original": "/certificates/originals/getting-started-with-professional-scrum.pdf",
+      "sha256": "2ca039e4b545923313bebe27f352fe5f0345da90809c06fdc2d5dfdeb9866c45"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Holding Yourself Accountable 2017.pdf",
+      "id": "holding-yourself-accountable-2017",
+      "original": "/certificates/originals/holding-yourself-accountable-2017.pdf",
+      "sha256": "562fc9660067406ba9dcbfe4fdc501c8074b695cb80751f0b9a4b20151d2fd1d"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Introducing Postman.pdf",
+      "id": "introducing-postman",
+      "original": "/certificates/originals/introducing-postman.pdf",
+      "sha256": "1f1fd16622b73d34d22a0a6a3a641162592341606839b90dd4f874bd4abcd90a"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_IoT Foundations Fundamentals.pdf",
+      "id": "iot-foundations-fundamentals",
+      "original": "/certificates/originals/iot-foundations-fundamentals.pdf",
+      "sha256": "d3d1a59d0a50bec5ba92f11086aa42d90efb2386bdc33b453bf71ee233fe1a24"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_IoT Foundations Operating Systems Fundamentals 2018.pdf",
+      "id": "iot-foundations-operating-systems-fundamentals-2018",
+      "original": "/certificates/originals/iot-foundations-operating-systems-fundamentals-2018.pdf",
+      "sha256": "2cdb05a7952c0393dc207b571e44f33a9d19f2843a70031d14da6619acdfc604"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Leadership Skills for The Future 2020.pdf",
+      "id": "leadership-skills-for-the-future-2020",
+      "original": "/certificates/originals/leadership-skills-for-the-future-2020.pdf",
+      "sha256": "dfb885e224276d5553ef0da629daaa3d4648eba632d462de60e071795dd4555f"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Leading with a Growth Mindset.pdf",
+      "id": "leading-with-a-growth-mindset",
+      "original": "/certificates/originals/leading-with-a-growth-mindset.pdf",
+      "sha256": "7194b35f2081d3ba07f5f9e5ccb3447d94e45468fb3af046300138bfd87317ac"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Microsoft Azure Networking Concepts 2021.pdf",
+      "id": "microsoft-azure-networking-concepts-2021",
+      "original": "/certificates/originals/microsoft-azure-networking-concepts-2021.pdf",
+      "sha256": "c20d6efa85419d2f923b0f041271395938b5ed0995bdac3e8ffefcc480effc88"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Planning a Microsoft Azure Solution.pdf",
+      "id": "planning-a-microsoft-azure-solution",
+      "original": "/certificates/originals/planning-a-microsoft-azure-solution.pdf",
+      "sha256": "8d07962fa49f9bf3e0ff60341fc021456ef42b8a691040c118da29bbc6b06a32"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Postman Essential Training.pdf",
+      "id": "postman-essential-training",
+      "original": "/certificates/originals/postman-essential-training.pdf",
+      "sha256": "e42cb392cb13d32de75ffd347a7e63db8015c38c481c1d9404c693c9da84db0f"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_PowerPoint Essential Training Office 365Microsoft 365 2020.pdf",
+      "id": "powerpoint-essential-training-office-365-microsoft-365-2020",
+      "original": "/certificates/originals/powerpoint-essential-training-office-365-microsoft-365-2020.pdf",
+      "sha256": "a2ce29aa56d41e1540b38bb933708bd598697b78d9c49f7a91514c9510e61d08"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_PowerPoint Tips and Tricks 2019.pdf",
+      "id": "powerpoint-tips-and-tricks-2019",
+      "original": "/certificates/originals/powerpoint-tips-and-tricks-2019.pdf",
+      "sha256": "a7b57ea0462a630fde869de5475d53af8c50ddaf4d3d02021d29ee93eea21c42"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Programming Foundations Software TestingQA.pdf",
+      "id": "programming-foundations-software-testing-qa",
+      "original": "/certificates/originals/programming-foundations-software-testing-qa.pdf",
+      "sha256": "8002b1cf552a6e79a856036af53df12cdb9c784bdddcdaae966228300b1e1451"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Prompt Engineering How to Talk to the AIs 2023.pdf",
+      "id": "prompt-engineering-how-to-talk-to-the-ais-2023",
+      "original": "/certificates/originals/prompt-engineering-how-to-talk-to-the-ais-2023.pdf",
+      "sha256": "a0614f4e141d32f70e9ededbb91562398defae1b01fc3fb415a23d010d5aac9c"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Prompt Engineering with ChatGPT.pdf",
+      "id": "prompt-engineering-with-chatgpt",
+      "original": "/certificates/originals/prompt-engineering-with-chatgpt.pdf",
+      "sha256": "3572e474c61974b0dd06f2a8c7bc40385b1d6548c114d4d92b1ccb000f920a3a"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Understanding Manual Testing.pdf",
+      "id": "understanding-manual-testing",
+      "original": "/certificates/originals/understanding-manual-testing.pdf",
+      "sha256": "ae0c72ae5a792f8503dd6c9b62681d5c1f0384948cd62ded8d62a2fdfd42e3ef"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Word Tips and Tricks.pdf",
+      "id": "word-tips-and-tricks",
+      "original": "/certificates/originals/word-tips-and-tricks.pdf",
+      "sha256": "d67ad5b1d5da881978029022d53ee5f2d19778cfc086f6573db98c98ed680e47"
+    },
+    {
+      "sourceFile": "CertificateOfCompletion_Working with Computers and Devices.pdf",
+      "id": "working-with-computers-and-devices",
+      "original": "/certificates/originals/working-with-computers-and-devices.pdf",
+      "sha256": "b719d8880d0e42b95976a7f0eb68570a126764b76e8e386b175a4fa8a6ea2d51"
+    },
+    {
+      "sourceFile": "ECS.png",
+      "id": "ecs-fundamentals",
+      "original": "/certificates/originals/ecs-fundamentals.png",
+      "sha256": "44c751584f69d5cb96cbb9890463248f5b31d2af9fb1f7cad67b3f11fcb4fe05"
+    },
+    {
+      "sourceFile": "FCA.jpeg",
+      "id": "fortinet-certified-associate-in-cybersecurity",
+      "original": "/certificates/originals/fortinet-certified-associate-in-cybersecurity.jpeg",
+      "sha256": "041a12783327e7651e40194f7317c16cdab610e074373d796834cdfc3e950176"
+    },
+    {
+      "sourceFile": "PICSPRO.jpeg",
+      "id": "philippine-institute-of-cyber-security-professionals-membership",
+      "original": "/certificates/originals/philippine-institute-of-cyber-security-professionals-membership.jpeg",
+      "sha256": "e1c6a225c29f6d580e6460d7730e1d5f9aa66693085c0a19ba9fc9b12173a26e"
+    },
+    {
+      "sourceFile": "alibaba.png",
+      "id": "alibaba-cloud-certified-associate-big-data",
+      "original": "/certificates/originals/alibaba-cloud-certified-associate-big-data.png",
+      "sha256": "a2e46892ed3af5c9fe735637e0b6181c5283f42dbd9a27d0c86fa7cd75d4e6cc"
+    },
+    {
+      "sourceFile": "apsara.png",
+      "id": "apsaradb-rds-fundamentals",
+      "original": "/certificates/originals/apsaradb-rds-fundamentals.png",
+      "sha256": "d037c41cec23fa6d7f716e2fb64dfe3bb65e20ac1dc1e58a51116f9c71ab63bd"
+    },
+    {
+      "sourceFile": "auto.png",
+      "id": "auto-scaling-fundamentals",
+      "original": "/certificates/originals/auto-scaling-fundamentals.png",
+      "sha256": "afc3aeda1fc344356e1bb546fc19789391a0bf10eacd6a2e278e9dbf660fe85a"
+    },
+    {
+      "sourceFile": "cisco.jpeg",
+      "id": "exploring-networking-with-cisco-packet-tracer",
+      "original": "/certificates/originals/exploring-networking-with-cisco-packet-tracer.jpeg",
+      "sha256": "e4cafe8fc8b403900f955e8bbcbc5bea828d01d03109e301efba78e168b35bb9"
+    },
+    {
+      "sourceFile": "google.jpeg",
+      "id": "play-it-safe-manage-security-risks",
+      "original": "/certificates/originals/play-it-safe-manage-security-risks.jpeg",
+      "sha256": "0e3ead59ed7a36e6f4f247d3876e2fc0484f41c380f3236fe79b14b0de8fecbb"
+    },
+    {
+      "sourceFile": "oss.png",
+      "id": "oss-fundamentals",
+      "original": "/certificates/originals/oss-fundamentals.png",
+      "sha256": "887ad99cc6f7b7ca069c8c4ba681c6dc3577fd5207c21c7313ab75533064b8c3"
+    },
+    {
+      "sourceFile": "slb.png",
+      "id": "slb-fundamentals",
+      "original": "/certificates/originals/slb-fundamentals.png",
+      "sha256": "0442ac03910f18a3544f19e6cbdad43fc4b0e565db2129c44b2b79d96e42adf2"
+    }
+  ]
+}

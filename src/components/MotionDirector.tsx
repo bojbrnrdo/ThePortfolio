@@ -98,8 +98,12 @@ export function MotionDirector(){
    });return ()=>{ctx.revert();cleanups.forEach(cleanup => cleanup());};
   });
   function setChapter(scene:HTMLElement){const el=document.querySelector('.chapter-current');if(el)el.textContent=scene.dataset.scene||'01';}
-  const refresh=()=>{ScrollTrigger.sort();ScrollTrigger.refresh();}; document.fonts.ready.then(refresh);
-  return ()=>{mm.revert();ScrollTrigger.removeEventListener('refresh', syncDimensions);gsap.ticker.remove(tick);document.documentElement.classList.remove('motion-ready');};
+  const refresh=()=>{ScrollTrigger.sort();ScrollTrigger.refresh();};
+  let layoutFrame = 0;
+  const onLayout = () => { cancelAnimationFrame(layoutFrame); layoutFrame = requestAnimationFrame(refresh); };
+  window.addEventListener('portfolio:layout', onLayout);
+  document.fonts.ready.then(refresh);
+  return ()=>{cancelAnimationFrame(layoutFrame);window.removeEventListener('portfolio:layout', onLayout);mm.revert();ScrollTrigger.removeEventListener('refresh', syncDimensions);gsap.ticker.remove(tick);document.documentElement.classList.remove('motion-ready');};
  },[]);
  return null;
 }

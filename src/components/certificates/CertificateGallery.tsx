@@ -1,5 +1,5 @@
 'use client';
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { type Certificate } from '../../data/certificates';
 import { useInteractiveGraphics } from '../../hooks/useInteractiveGraphics';
 import { FlexCarousel } from '../graphics/FlexCarousel';
@@ -7,43 +7,88 @@ import { GraphicsBoundary } from '../graphics/GraphicsBoundary';
 import { Arrow } from '../ui/Arrow';
 
 type Props = { certificates: Certificate[] };
+const filters = [
+  ['All documents', 'all'], ['Certifications', 'Professional certification'],
+  ['Courses', 'Course completion'], ['Membership', 'Membership'],
+] as const;
+
+function printedDate(date: string) {
+  return new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T00:00:00Z`));
+}
+function DocumentDetails({ certificate }: { certificate: Certificate }) {
+  return <>
+    <p>{certificate.issuer}</p>
+    <p className="certificate-kind">{certificate.kind}</p>
+    {certificate.issuedOn && <p>Issued <time dateTime={certificate.issuedOn}>{printedDate(certificate.issuedOn)}</time></p>}
+    {certificate.expiresOn && <p>Valid until <time dateTime={certificate.expiresOn}>{printedDate(certificate.expiresOn)}</time></p>}
+    {certificate.note && <p className="certificate-note">{certificate.note}</p>}
+  </>;
+}
 
 export function CertificateGallery({ certificates }: Props) {
   const root = useRef<HTMLDivElement>(null);
   const enhanced = useInteractiveGraphics(root);
+  const [filter, setFilter] = useState<string>('all');
   const [active, setActive] = useState(0);
-  const selected = certificates[active] ?? certificates[0];
-  // An empty array makes the upstream component show stock images: do not mount it.
+  const filtered = useMemo(() => certificates.filter(certificate => filter === 'all' || certificate.kind === filter), [certificates, filter]);
+  const items = useMemo(() => filtered.map(certificate => ({ src: certificate.carouselPreview, alt: certificate.previewAlt, title: certificate.title, subtitle: certificate.issuer })), [filtered]);
+  const selected = filtered[active] ?? filtered[0];
+  useEffect(() => {
+    const element = root.current;
+    if (!element) return;
+    const observer = new ResizeObserver(() => window.dispatchEvent(new Event('portfolio:layout')));
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+  // The upstream default is demo imagery; never mount an empty carousel.
   if (!certificates.length) return null;
 
   function move(key: string) {
     const carousel = root.current?.querySelector<HTMLElement>('.flex-carousel');
-    carousel?.focus();
-    carousel?.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
+    if (carousel) {
+      carousel.focus();
+      carousel.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }));
+    } else {
+      setActive(index => (index + (key === 'ArrowRight' ? 1 : -1) + filtered.length) % filtered.length);
+    }
   }
   function openOriginal(index: number) {
-    root.current?.querySelector<HTMLAnchorElement>(`[data-certificate-index="${index}"]`)?.click();
+    const certificate = filtered[index];
+    if (certificate) root.current?.querySelector<HTMLAnchorElement>(`[data-certificate-id="${certificate.id}"]`)?.click();
+  }
+  function documentList(documents: Certificate[], start: number) {
+    return <ul className="certificate-list">{documents.map((certificate, index) => <li key={certificate.id}>
+      <a data-certificate-id={certificate.id} href={certificate.original} target="_blank" rel="noopener noreferrer" aria-label={`Open original document: ${certificate.title} (new tab)`}>
+        <img src={certificate.preview} alt={certificate.previewAlt} width={certificate.previewWidth} height={certificate.previewHeight} loading="lazy" decoding="async"/>
+        <div><span className="certificate-number">{String(start+index+1).padStart(2,'0')}</span><div><h3>{certificate.title}</h3><DocumentDetails certificate={certificate}/></div><Arrow/></div>
+      </a>
+    </li>)}</ul>;
   }
 
   return <div ref={root} className={`certificate-gallery${enhanced ? ' is-enhanced' : ''}`}>
-    {enhanced && <>
-      <div className="certificate-canvas"><GraphicsBoundary><FlexCarousel
-        items={certificates.map(certificate => ({ src: certificate.preview, alt: certificate.previewAlt, title: certificate.title, subtitle: certificate.issuer }))}
-        captureWheel={false} autoplay={false} focusOnClick={false} captions={false}
+    <div className="certificate-filters" role="group" aria-label="Filter certificate documents">{filters.map(([label, value]) => {
+      const count = value === 'all' ? certificates.length : certificates.filter(certificate => certificate.kind === value).length;
+      return <button key={value} aria-pressed={filter === value} onClick={() => { setFilter(value); setActive(0); }}>{label} <span>{count}</span></button>;
+    })}</div>
+    {selected && <>
+      <div className="certificate-canvas">
+        <img className="certificate-featured-preview" src={selected.preview} alt={selected.previewAlt} width={selected.previewWidth} height={selected.previewHeight} loading="lazy" decoding="async"/>
+        {enhanced && <div className="certificate-webgl"><GraphicsBoundary><FlexCarousel key={filter}
+        items={items} captureWheel={false} autoplay={false} focusOnClick={false} captions={false}
         cardHeight={.84} gap={35} fit="natural" intro="fade" bend={.12} dispersion={0}
         onChange={setActive} onSelect={openOriginal}
-      /></GraphicsBoundary></div>
-      <div className="certificate-selected">
-        <div><span>{String(active+1).padStart(2,'0')} / {String(certificates.length).padStart(2,'0')}</span><h3>{selected.title}</h3>{selected.issuer && <p>{selected.issuer}</p>}</div>
-        <div className="certificate-controls"><button onClick={() => move('ArrowLeft')} aria-label="Previous certificate"><Arrow direction="left"/></button><button onClick={() => move('ArrowRight')} aria-label="Next certificate"><Arrow direction="left"/></button></div>
+      /></GraphicsBoundary></div>}
       </div>
-      <p className="certificate-gesture">DRAG OR USE ARROW KEYS / SELECT A CERTIFICATE TO OPEN THE ORIGINAL</p>
+      <div className="certificate-selected">
+        <div><span>{String(active+1).padStart(2,'0')} / {String(filtered.length).padStart(2,'0')}</span><h3>{selected.title}</h3><DocumentDetails certificate={selected}/><a className="certificate-original" href={selected.original} target="_blank" rel="noopener noreferrer">View original document <Arrow/></a></div>
+        {filtered.length > 1 && <div className="certificate-controls"><button onClick={() => move('ArrowLeft')} aria-label="Previous certificate"><Arrow direction="left"/></button><button onClick={() => move('ArrowRight')} aria-label="Next certificate"><Arrow direction="left"/></button></div>}
+      </div>
+      <p className="certificate-gesture">{enhanced ? 'DRAG OR USE ARROW KEYS / SELECT A DOCUMENT TO OPEN THE ORIGINAL' : 'USE THE PREVIEW CONTROLS OR CHOOSE A DOCUMENT BELOW'}</p>
     </>}
-    <ul className="certificate-list">{certificates.map((certificate, index) => <li key={certificate.id}>
-      <a data-certificate-index={index} href={certificate.original} target="_blank" rel="noopener noreferrer" aria-label={`Open original certificate: ${certificate.title} (new tab)`}>
-        <img src={certificate.preview} alt={certificate.previewAlt} width={1200} height={850} loading="lazy" decoding="async"/>
-        <div><span className="certificate-number">{String(index+1).padStart(2,'0')}</span><div><h3>{certificate.title}</h3>{certificate.issuer && <p>{certificate.issuer}</p>}{certificate.issuedOn && <p>{certificate.issuedOn}</p>}</div><Arrow/></div>
-      </a>
-    </li>)}</ul>
+    {filtered.length ? <>
+      {documentList(filtered.slice(0,6),0)}
+      {filtered.length > 6 && <details className="certificate-archive" key={filter}><summary>View remaining {filtered.length-6} documents <span>+</span></summary>{documentList(filtered.slice(6),6)}</details>}
+    </> : <p>No documents in this category.</p>}
+    <p className="certificate-dates-note">Dates and validity are as printed on each document. Course completions and memberships are listed separately from professional certifications.</p>
   </div>;
 }
