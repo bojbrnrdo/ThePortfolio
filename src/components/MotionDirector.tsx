@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { directOpening, directDisciplines, directProcess } from './motion/choreography';
 export function MotionDirector(){
  useEffect(()=>{
   gsap.registerPlugin(ScrollTrigger);
@@ -18,24 +19,34 @@ export function MotionDirector(){
     gsap.utils.toArray<HTMLElement>('[data-scene]').forEach((scene)=>{
      ScrollTrigger.create({trigger:scene,start:'top center',end:'bottom center',onEnter:()=>setChapter(scene),onEnterBack:()=>setChapter(scene)});
     });
-    gsap.from('.hero-title .word',{yPercent:115,rotate:3,stagger:.12,duration:1.2,ease:'power4.out',delay:.1});
-    gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}}).to('.hero-title',{yPercent:-20,scale:.9},0).to('.sculpture',{rotate:55,scale:1.6,yPercent:30},0).to('.hero-bottom',{opacity:0},0);
     gsap.utils.toArray<HTMLElement>('.reveal').forEach(el=>gsap.from(el,{y:50,clipPath:'inset(100% 0 0 0)',duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%',toggleActions:'play none none reverse'}}));
     gsap.utils.toArray<HTMLElement>('.project-art').forEach(el=>gsap.fromTo(el,{scale:.88,clipPath:'inset(10% 6% 10% 6%)'},{scale:1,clipPath:'inset(0% 0% 0% 0%)',scrollTrigger:{trigger:el,start:'top bottom',end:'top 20%',scrub:1}}));
    });
    return ()=>{ctx.revert();gsap.ticker.remove(tick);lenis?.destroy();lenis=undefined;};
   });
   mm.add('(min-width: 900px) and (prefers-reduced-motion: no-preference)',()=>{
+   const cleanups: (() => void)[] = [];
    const ctx=gsap.context(()=>{
-    const words=gsap.utils.toArray<HTMLElement>('.identity-word');
-    gsap.set(words.slice(1),{yPercent:110});
-    const tl=gsap.timeline({scrollTrigger:{trigger:'.identity',start:'top top',end:'+=170%',pin:true,scrub:.7}});
-    words.forEach((word,i)=>{if(i){tl.to(words[i-1],{yPercent:-110,duration:1}).to(word,{yPercent:0,duration:1},'<');}tl.to('.identity-orbit',{rotate:i*90,scale:1+i*.12,duration:.5});});
-    gsap.to('.project-track',{x:()=>-(document.querySelector('.project-track')!.scrollWidth-window.innerWidth),ease:'none',scrollTrigger:{trigger:'.projects',start:'top top',end:()=>'+='+window.innerWidth,pin:true,scrub:1,invalidateOnRefresh:true}});
-   });return ()=>ctx.revert();
+    const opening = directOpening(document.querySelector<HTMLElement>('.film-stage')!);
+    const resetDisciplines = directDisciplines(document.querySelector<HTMLElement>('.disciplines')!);
+    const resetProcess = directProcess(document.querySelector<HTMLElement>('.process')!);
+    gsap.fromTo('.work-intro h2', { scale: .7, xPercent: -8, rotate: -5 }, { scale: 1, xPercent: 0, rotate: 0, scrollTrigger: { trigger: '.work-intro', start: 'top bottom', end: 'center center', scrub: .6 } });
+    gsap.fromTo('.closing-mark', { rotation: -90, scale: .45 }, { rotation: 0, scale: 1, scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'center center', scrub: .7 } });
+    const onAnchor = (event: MouseEvent) => {
+      const target = event.target instanceof Element ? event.target.closest('a[href="#identity"]') : null;
+      if (!target || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const trigger = opening.timeline.scrollTrigger!;
+      lenis?.scrollTo(trigger.start + (trigger.end - trigger.start) * (opening.timeline.labels.identity + .7) / opening.timeline.duration());
+    };
+    document.addEventListener('click', onAnchor, true);
+    cleanups.push(() => { opening.cleanup(); resetDisciplines(); resetProcess(); document.removeEventListener('click', onAnchor, true); });
+    gsap.to('.project-track',{x:()=>-(document.querySelector('.project-track')!.scrollWidth-window.innerWidth),ease:'none',scrollTrigger:{refreshPriority:2,trigger:'.projects',start:'top top',end:()=>'+='+window.innerWidth,pin:true,scrub:1,invalidateOnRefresh:true}});
+   });return ()=>{ctx.revert();cleanups.forEach(cleanup => cleanup());};
   });
   function setChapter(scene:HTMLElement){const el=document.querySelector('.chapter-current');if(el)el.textContent=scene.dataset.scene||'01';}
-  const refresh=()=>ScrollTrigger.refresh(); document.fonts.ready.then(refresh);
+  const refresh=()=>{ScrollTrigger.sort();ScrollTrigger.refresh();}; document.fonts.ready.then(refresh);
   return ()=>{mm.revert();gsap.ticker.remove(tick);document.documentElement.classList.remove('motion-ready');};
  },[]);
  return null;

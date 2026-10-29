@@ -20,8 +20,9 @@ Edit `src/data/portfolio.ts` for personal copy, disciplines, project notes, expe
 
 ## Motion architecture
 
-`MotionDirector` owns GSAP contexts, matchMedia cleanup, ScrollTrigger, and Lenis lifecycle. Opening typography and geometry share a scroll sequence; the identity composition pins and transitions between statements; the two-project sequence uses vertical scroll to move a horizontal track. Other scenes use masked reveals and deliberate editorial pauses. `ProjectShowcase` and `Navigation` remain separate from choreography and content.
+`OpeningSequence` renders the opening and identity on one shared stage. `motion/choreography.ts` defines reversible GSAP timelines: seven rings assemble, flatten into a frame, turn with CREATE / BUILD / SOLVE, and resolve into a quiet ivory composition. Character reveals, geometry, color, and typography all use the same scroll clock. The disciplines and five-step process each have a pinned replacement sequence, while project presentation retains its horizontal track. The ring motif returns in the closing frame.
 
+`MotionDirector` owns matchMedia contexts, Lenis, ScrollTrigger, anchor targeting, and cleanup. Directed layout classes are applied only when desktop motion initializes and are removed on resize or preference changes. `ProjectShowcase` and `Navigation` stay separate from choreography and content.
 Desktop pinning is enabled at 900px and above. Smaller screens stack projects and identity statements. Reduced motion disables Lenis, pinning, and scrubbed animation. Server-rendered content remains accessible without JavaScript. Menu, chapter status, and progress enhance the document without hiding essential information.
 
 ## Validation

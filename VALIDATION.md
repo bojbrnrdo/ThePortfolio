@@ -18,3 +18,11 @@ Limitations:
 - Contact email, LinkedIn, résumé, project links/media/details, specific technical skills, and experience await verified content. Abstract covers are labeled placeholders.
 - No deployment, remote push, or fresh-task snapshot restoration was performed.
 - Turbopack was unavailable due to cloud worker socket restrictions; the supported Webpack build passes.
+
+## Connected motion update
+
+Production build and TypeScript passed after replacing independent opening/identity animations with one shared scroll timeline. Chromium checks passed at desktop 1440×900, mobile 390×844, and reduced-motion 1440×900, with zero JavaScript page errors and zero automated WCAG A/AA violations in the tested compositions.
+
+Verified opening forward/reverse playback, identity anchor landing during the readable hold, direct work navigation, removal/restoration of all three directed stage classes on resize, static content without JavaScript, and absence of document horizontal overflow. Separate checks verified final discipline/process compositions and reverse playback to their first states, including accessibility scans. Pinned sequences refresh in document order so earlier pin spacing is accounted for. Development hydration and menu interaction were checked at the localhost URL.
+
+Placeholder portfolio content is unchanged. No new application dependencies were added. Safari, Firefox, physical-device performance, and assistive-technology review remain untested.
