@@ -67,17 +67,17 @@ export function CertificateGallery({ certificates }: Props) {
         <img className="certificate-featured-preview" src={selected.preview} alt={selected.previewAlt} width={selected.previewWidth} height={selected.previewHeight} loading="lazy" decoding="async"/>
         {enhanced && <div className="certificate-webgl"><GraphicsBoundary><FlexCarousel key={filter}
         items={items} captureWheel={false} autoplay={false} focusOnClick={false} captions={false}
-        cardHeight={.84} gap={35} fit="natural" intro="fade" bend={.12} dispersion={0}
+        cardHeight={.76} gap={64} fit="natural" intro="fade" bend={.035} dispersion={0}
         onChange={setActive} onSelect={openOriginal}
       /></GraphicsBoundary></div>}
       </div>
       <div className="certificate-selected">
-        <div><span>{String(active+1).padStart(2,'0')} / {String(filtered.length).padStart(2,'0')}</span><h3>{selected.title}</h3><DocumentDetails certificate={selected}/><a className="certificate-original" href={selected.original} target="_blank" rel="noopener noreferrer">View original document <Arrow/></a></div>
+        <div><span>{String(active+1).padStart(2,'0')} / {String(filtered.length).padStart(2,'0')}</span><h3>{selected.title}</h3><DocumentDetails certificate={selected}/><a className="certificate-original" href={selected.original} target="_blank" rel="noopener noreferrer">Open original <Arrow/></a></div>
         {filtered.length > 1 && <div className="certificate-controls"><button onClick={() => move('ArrowLeft')} aria-label="Previous certificate"><Arrow direction="left"/></button><button onClick={() => move('ArrowRight')} aria-label="Next certificate"><Arrow direction="left"/></button></div>}
       </div>
-      <p className="certificate-gesture">{enhanced ? 'DRAG OR USE ARROW KEYS / SELECT A DOCUMENT TO OPEN THE ORIGINAL' : 'USE THE PREVIEW CONTROLS TO EXPLORE DOCUMENTS'}</p>
+      <p className="certificate-gesture">{enhanced ? 'Drag or use arrow keys.' : 'Use the arrows to browse.'}</p>
     </>}
     <noscript><ul>{filtered.map(certificate => <li key={certificate.id}><a href={certificate.original} target="_blank" rel="noopener noreferrer">{certificate.title}</a></li>)}</ul></noscript>
-    <p className="certificate-dates-note">Dates and validity are as printed on each document. Course completions and memberships are listed separately from professional certifications.</p>
+    <p className="certificate-dates-note">Dates match the original documents.</p>
   </div>;
 }

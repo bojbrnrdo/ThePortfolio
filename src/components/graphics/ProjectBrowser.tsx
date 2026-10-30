@@ -30,7 +30,7 @@ function BrowserContents({ close }: { close: () => void }) {
         <span><small>0{i+1} / PROJECT</small><strong>{project.title}</strong><span>Explore project <Arrow/></span></span>
       </a>
     </li>)}</ul>
-    <p className="project-browser-note">Conceptual covers. Project screenshots and details are still to be added.</p>
+    <p className="project-browser-note">Concept covers. Screenshots coming soon.</p>
   </div>;
 }
 
@@ -49,7 +49,7 @@ export function ProjectBrowser() {
   return <>
     <button ref={trigger} className="work-browser-trigger" aria-haspopup="dialog" aria-controls="project-browser" aria-expanded={open} onClick={() => setOpen(true)}>Browse projects <Arrow/></button>
     <dialog id="project-browser" ref={dialog} className="project-browser" aria-label="Browse selected projects" data-lenis-prevent onClose={() => { setOpen(false); trigger.current?.focus({ preventScroll: true }); }}>
-      <div className="project-browser-top"><div><span>SELECTED WORK / INDEX</span><h2>A different point of view.</h2></div><button onClick={() => dialog.current?.close()}>Close −</button></div>
+      <div className="project-browser-top"><div><span>SELECTED WORK / INDEX</span><h2>Projects.</h2></div><button onClick={() => dialog.current?.close()}>Close −</button></div>
       {open && <BrowserContents close={() => dialog.current?.close()}/>}
     </dialog>
   </>;

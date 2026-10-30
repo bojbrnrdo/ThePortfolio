@@ -56,3 +56,7 @@ The skills chapter now includes InfiniteSpiral with 36 local technology marks: 1
 The upstream JS/CSS source is from the same recorded React Bits revision. The registry request failed in this environment, so the official cloned source was used with its license retained. InfiniteSpiral uses CSS transforms and adds no runtime package dependency. It responds to scroll/drag, pauses on hover, provides a persistent pause/resume control, and unmounts outside the supported visible desktop state. Mobile, short windows, reduced motion, and JavaScript-disabled pages show a readable icon grid. Its labels are also available through a native disclosure. The disclosure and footer keep their layout space when the animation unmounts, so downstream section links do not shift.
 
 Static SVG icons come from Simple Icons 16.36.0 and Devicon 2.18.0, with source attribution and licenses under `public/technology-icons`. They are rendered as bare monochrome marks to preserve the portfolio palette. The spiral has no outer panel, card backgrounds, or pill-style filter containers; it uses slower motion, soft edge fades, and gentle filter entrances. No icon CDN is required.
+
+## Motion references
+
+See [motion background references](docs/motion-background-references.md) for researched Codrops, React Bits and Three.js sources, demo links and the recommended direction. These are references; this revision adds no new graphics library.

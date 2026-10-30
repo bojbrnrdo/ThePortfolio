@@ -33,8 +33,8 @@ export function TechnologySpiral() {
       <ul className="technology-static" aria-hidden={enhanced || undefined}>{filtered.map(technology => <li key={technology.id}><img src={technology.icon} alt="" width={40} height={40} loading="lazy"/><span>{technology.name}</span></li>)}</ul>
       {enhanced && <div className="technology-spiral" aria-hidden="true"><GraphicsBoundary><InfiniteSpiral key={discipline} items={items} speed={.38} animationMode={paused ? 'drag' : 'all'} radius={200} cardWidth={78} cardHeight={78} verticalSpacing={68} cardsPerTurn={9} edgeBlur={0} edgeFade={.55} centerScale={1.08} pauseOnHover imageFit="contain"/></GraphicsBoundary></div>}
     </div>
-    <div className="technology-footer"><p>{enhanced ? 'Scroll or drag to shift perspective. Hover to pause.' : 'A visual map of languages and tools across three disciplines.'}</p>{enhanced && <button onClick={() => setPaused(value => !value)} aria-pressed={paused}>{paused ? 'Resume spiral' : 'Pause spiral'}<svg className="technology-play-icon" aria-hidden="true" viewBox="0 0 24 24"><path d={paused ? 'M8 5l11 7-11 7Z' : 'M8 5v14M16 5v14'}/></svg></button>}</div>
+    <div className="technology-footer"><p>{enhanced ? 'Drag to explore. Hover to pause.' : ''}</p>{enhanced && <button onClick={() => setPaused(value => !value)} aria-pressed={paused}>{paused ? 'Resume spiral' : 'Pause spiral'}<svg className="technology-play-icon" aria-hidden="true" viewBox="0 0 24 24"><path d={paused ? 'M8 5l11 7-11 7Z' : 'M8 5v14M16 5v14'}/></svg></button>}</div>
     {enhanced && <ul className="technology-accessible-names">{filtered.map(technology => <li key={technology.id}>{technology.name}</li>)}</ul>}
-    <p className="technology-context">Icons illustrate the wider technology ecosystem. Verified skills and specific project experience are documented separately.</p>
+    <p className="technology-context">Reference tools, not a claim of proficiency.</p>
   </div>;
 }

@@ -6,10 +6,10 @@ export function ProjectShowcase() {
     <div className="project-track">
       {portfolio.projects.map((project, i) => <article id={`project-${i + 1}`} className="project" key={project.title} aria-labelledby={`project-title-${i + 1}`}>
         <div className={`project-art ${project.visual}`}>
-          <span className="art-label">CONCEPTUAL COVER / PROJECT MEDIA PENDING</span>
+          <span className="art-label">CONCEPT COVER</span>
           <div className="art-object" aria-hidden="true">{i === 0 ? <><i/><i/><i/><i/><i/></> : <><span/><span/><span/></>}</div>
-          <span className="art-title" aria-hidden="true">{project.title}<sup>®</sup></span>
-          <span className="art-footer">EXPLORATIONS IN DIGITAL FORM <span>{String(i+1).padStart(2,'0')} — {String(portfolio.projects.length).padStart(2,'0')}</span></span>
+          <span className="art-title" aria-hidden="true">{project.title}</span>
+          <span className="art-footer">PROJECT PREVIEW <span>{String(i+1).padStart(2,'0')} — {String(portfolio.projects.length).padStart(2,'0')}</span></span>
         </div>
         <div className="project-meta">
           <span className="project-index">/ {project.year}</span>
