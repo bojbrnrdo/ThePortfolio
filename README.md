@@ -60,3 +60,7 @@ Static SVG icons come from Simple Icons 16.36.0 and Devicon 2.18.0, with source 
 ## Motion references
 
 See [motion background references](docs/motion-background-references.md) for researched Codrops, React Bits and Three.js sources, demo links and the recommended direction. Threads is integrated as a dynamically loaded renderer with a direct GSAP uniform bridge. Other examples remain references. No new runtime package was added.
+
+## Optional character film
+
+The six-chapter protagonist workflow is prepared in [the production brief](docs/cinema/production-brief.md). [Integration instructions](docs/cinema/integration.md) explain the reviewed-media manifest and scroll-video adapter. The manifest is currently empty: no portrait-derived footage is generated or displayed, and the existing site remains the fallback. The original portrait file and callable Higgsfield tools are still needed; paid generations require a separately approved batch/cost before submission.

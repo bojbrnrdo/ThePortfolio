@@ -132,3 +132,7 @@ body{background:#0b0c0f}main{position:relative;z-index:1;background:transparent}
 @media(max-width:600px){.ambient-toggle{left:18px;bottom:23px;font-size:8px;gap:10px}}
 @media(prefers-reduced-motion:reduce){.ambient-toggle{display:none}.thread-enhancement{display:none}.continuous-backdrop .ribbon-field{opacity:.65;transition:none}}
 .hero-bottom{bottom:76px}.contact footer{padding-bottom:55px}
+/* Approved character footage is optional; the existing environment remains underneath. */
+.character-film{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity .5s ease}.character-film[data-visible=true]{opacity:1}.character-poster,.character-footage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center}.character-footage{opacity:0;transition:opacity .35s ease}.character-footage[data-ready=true]{opacity:1}.character-film-shade{position:absolute;inset:0;background:linear-gradient(90deg,#0b0c0ff5,#0b0c0fb3 35%,#0b0c0f33 75%),linear-gradient(0deg,#0b0c0f 0%,transparent 20%,transparent 85%,#0b0c0f80)}
+@media(max-width:899px){.character-film-shade{background:linear-gradient(90deg,#0b0c0fe8,#0b0c0f77),linear-gradient(0deg,#0b0c0f,transparent 40%)}}
+@media(prefers-reduced-motion:reduce){.character-film,.character-footage{transition:none}}

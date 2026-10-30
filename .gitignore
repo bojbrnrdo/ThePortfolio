@@ -4,3 +4,6 @@ out/
 *.tsbuildinfo
 .env*
 !.env.example
+
+# Original character references and generation drafts stay out of the published app.
+.private/
