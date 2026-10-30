@@ -92,3 +92,9 @@ Updated the existing app on `feature/studio-cinematic-redesign`; no new runtime 
 ## Motion visibility correction
 
 Added ongoing sculpture movement and red-seam lighting after the one-time intro, a desktop replay control, stronger reversible sculpture unfolding, About parallax, filter and media entrances, and closing link/horizon choreography. Compact viewports now receive character reveals, scroll-driven sculpture perspective, identity movement, discipline/process entrances and project mask reveals without desktop pinning. All additions remain inside reduced-motion-aware GSAP contexts or CSS media queries. Chromium explicitly confirms the sculpture transform changes over time on desktop/mobile, changes with mobile scrolling, replay/skip work, and reduced motion keeps the sculpture still.
+
+## Continuous personal background
+
+One fixed SVG backdrop replaces the separate hero sculpture and section surfaces. Nine paths morph through seven matching cubic arrangements across a shared scroll timeline; scroll reversal restores the original path within one SVG unit in Chromium checks. Every major section and pinned stage has a transparent computed background. Certificate paper and project art retain their media colors.
+
+TypeScript and production webpack build pass. Chromium checks pass for desktop (1440×1000), mobile (390×844), short laptop (1280×650), and reduced motion: no horizontal overflow, no JavaScript page errors, certificate navigation and original links remain available, all section backgrounds are transparent, and WCAG A/AA automated scans report zero violations. Reduced motion leaves paths unchanged as scrolling advances. A JavaScript-disabled mobile check confirms the name, all 36 technology labels and all 36 original certificate links remain available. Desktop/mobile screenshots reviewed. No new dependencies. Physical-device performance and Safari/Firefox remain untested.

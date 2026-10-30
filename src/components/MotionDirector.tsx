@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
+import { directContinuousField } from './motion/continuousField';
 import { directSceneAtmosphere, directCompactScenes } from './motion/sceneAtmosphere';
 import { directWork } from './motion/workChoreography';
 import { directOpening, directDisciplines, directProcess } from './motion/choreography';
@@ -32,6 +33,7 @@ export function MotionDirector(){
    };
    document.addEventListener('click', onAnchor);
    const ctx=gsap.context(()=>{
+    directContinuousField();
     directSceneAtmosphere();
     gsap.to('.scroll-progress',{scaleX:1,ease:'none',scrollTrigger:{trigger:'main',start:'top top',end:'bottom bottom',scrub:true}});
     gsap.utils.toArray<HTMLElement>('[data-scene]').forEach((scene)=>{
