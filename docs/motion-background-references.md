@@ -1,6 +1,6 @@
 # Motion background references
 
-Research for this portfolio, 30 October 2026. These are specific source references, not a claim that their code has been added to the app. The current background remains the original lightweight SVG/GSAP implementation.
+Research for this portfolio, 30 October 2026. Threads is now integrated through a locally adapted renderer. The SVG/GSAP composition remains the mobile, reduced-motion and unavailable-WebGL fallback. Other sources below remain design references.
 
 ## Best match: Codrops — On-Scroll SVG Path Animations
 
@@ -45,4 +45,4 @@ Threads and Silk were inspected in the existing official React Bits checkout at 
 
 ## Recommendation
 
-Use Codrops path choreography as the structural reference and Threads as the visual reference. Keep the single dark background, give the line field a few memorable transformations, and leave text areas quiet. Silk is an alternative direction, not an additional layer. No reference artwork, project screenshots, fonts or third-party code were copied in this revision.
+Use Codrops path choreography as the structural reference and Threads as the visual reference. Keep the single dark background, give the line field a few memorable transformations, and leave text areas quiet. Silk is an alternative direction, not an additional layer. The subsequent integration uses the official Threads renderer with its license retained and local adaptations documented in `src/components/react-bits/README.md`. No reference artwork, project screenshots or fonts were copied.

@@ -59,4 +59,4 @@ Static SVG icons come from Simple Icons 16.36.0 and Devicon 2.18.0, with source 
 
 ## Motion references
 
-See [motion background references](docs/motion-background-references.md) for researched Codrops, React Bits and Three.js sources, demo links and the recommended direction. These are references; this revision adds no new graphics library.
+See [motion background references](docs/motion-background-references.md) for researched Codrops, React Bits and Three.js sources, demo links and the recommended direction. Threads is integrated as a dynamically loaded renderer with a direct GSAP uniform bridge. Other examples remain references. No new runtime package was added.

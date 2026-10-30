@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import { threadMotion, threadBeats } from './threadMotion';
 import { ribbonFormCount, ribbonPath } from './ribbonForms';
 
 export function directContinuousField() {
@@ -8,6 +9,7 @@ export function directContinuousField() {
     invalidateOnRefresh: true,
   }});
   for (let form = 1; form < ribbonFormCount; form++) {
+    field.to(threadMotion, { ...threadBeats[form - 1], duration: 1 }, form - 1);
     field.to(ribbons, { attr: { d: (index: number) => ribbonPath(form, index) }, duration: 1 }, form - 1)
       .to('.ribbon-tracer', { attr: { d: ribbonPath(form, 4) }, duration: 1 }, form - 1);
   }

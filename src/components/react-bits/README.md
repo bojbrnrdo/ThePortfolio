@@ -10,3 +10,7 @@ at commit `e12c22192ac7b4b452c5e2feb9b586d74765d696`.
 These sources are used as part of this portfolio application. See LICENSE.md for the upstream MIT + Commons Clause terms. Do not distribute the components as a standalone component product.
 
 The named shadcn registry request was blocked by this cloud environment. A local-registry attempt installed `ogl` but was also blocked while requesting shadcn's neutral color metadata. Files were therefore copied directly from the reviewed official clone. The application wrappers supply only local SVG artwork, dynamically import the components, gate WebGL on visibility and device capability, and preserve static fallbacks.
+
+## Threads background
+
+`Threads.jsx` and `Threads.css` are from the same recorded upstream revision. The renderer is adapted with three additive props: `motionState` (mutable GSAP-owned uniform values), `onReady`, and `onUnavailable`. It also reports WebGL context loss so the app can retain its SVG fallback. The existing render-size cap, visibility scheduling, resource cleanup and license are retained. No extra dependency is required. `ThreadAtmosphere` dynamically loads it only for capable motion-enabled desktop views. The single shared timeline animates both the SVG fallback and shader settings; it does not cause React renders on each animation frame.
